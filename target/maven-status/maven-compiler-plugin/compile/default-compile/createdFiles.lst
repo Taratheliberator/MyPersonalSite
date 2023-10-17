@@ -1,0 +1,9 @@
+com\mysite\service\BlogService.class
+com\mysite\config\SecurityConfig.class
+com\mysite\MyPersonalSiteApplication.class
+com\mysite\model\Post.class
+com\mysite\repository\PostRepository.class
+com\mysite\controller\BlogController.class
+com\mysite\model\User.class
+com\mysite\repository\UserRepository.class
+com\mysite\service\UserDetailsServiceImpl.class
