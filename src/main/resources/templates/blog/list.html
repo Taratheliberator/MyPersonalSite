@@ -20,11 +20,28 @@
 
         .list-group-item h3 {
             font-size: 24px;
+            margin-bottom: 16px;
         }
 
         .list-group-item p {
             font-size: 18px;
         }
+
+        .post-image {
+            width: 40%;
+            max-height: 400px;
+            object-fit: contain;
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
     </style>
 </head>
 <body>
@@ -55,18 +72,20 @@
 
 <div class="container mt-5">
     <h1>Статьи блога</h1>
+    ...
     <ul class="list-group">
-        <li th:each="post : ${posts}" class="list-group-item">
+        <li th:each="post : ${posts}" class="list-group-item clearfix">
+            <img th:src="@{'/blog/image/' + ${post.id}}" alt="Post Image" th:if="${post.image != null}" class="post-image">
             <h3 th:text="${post.title}"></h3>
             <p th:text="${post.content}"></p>
-            <img th:src="@{'/blog/image/' + ${post.id}}" alt="Post Image" th:if="${post.image != null}" style="width: 100%; max-height: 400px;">
-
             <a th:href="'/blog/edit/' + ${post.id}" class="btn btn-warning" th:if="${#authentication.name != 'anonymousUser'}">Редактировать</a>
             <form th:action="@{'/blog/delete/' + ${post.id}}" method="post" style="display: inline;" th:if="${#authentication.name != 'anonymousUser'}">
                 <button type="submit" class="btn btn-danger">Удалить</button>
             </form>
         </li>
     </ul>
+    ...
+
 </div>
 
 <div class="mb-5"  th:if="${#authentication.name != 'anonymousUser'}">

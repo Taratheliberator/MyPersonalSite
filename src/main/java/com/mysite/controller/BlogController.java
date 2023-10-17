@@ -35,15 +35,14 @@ public class BlogController {
     }
 
     @PostMapping("/blog/save")
-    public String blogSave(@RequestParam(required = false) Long id, @RequestParam String title, @RequestParam String content, @RequestParam("image") MultipartFile file) {
+    public String blogSave(@RequestParam(required = false) Long id, @RequestParam String title, @RequestParam String content, @RequestParam(name = "image", required = false) MultipartFile file) {
         byte[] imageBytes = null;
         String imageType = null;
-        if (!file.isEmpty()) {
+        if (file != null && !file.isEmpty()) {
             try {
                 imageBytes = file.getBytes();
                 imageType = file.getContentType();
             } catch (IOException e) {
-
                 e.printStackTrace();
             }
         }
@@ -51,6 +50,7 @@ public class BlogController {
         blogService.savePost(post);
         return "redirect:/blog";
     }
+
 
 
     // Измените @GetMapping на @PostMapping здесь
