@@ -59,6 +59,8 @@
         <li th:each="post : ${posts}" class="list-group-item">
             <h3 th:text="${post.title}"></h3>
             <p th:text="${post.content}"></p>
+            <img th:src="@{'/blog/image/' + ${post.id}}" alt="Post Image" th:if="${post.image != null}" style="width: 100%; max-height: 400px;">
+
             <a th:href="'/blog/edit/' + ${post.id}" class="btn btn-warning" th:if="${#authentication.name != 'anonymousUser'}">Редактировать</a>
             <form th:action="@{'/blog/delete/' + ${post.id}}" method="post" style="display: inline;" th:if="${#authentication.name != 'anonymousUser'}">
                 <button type="submit" class="btn btn-danger">Удалить</button>
@@ -69,7 +71,8 @@
 
 <div class="mb-5"  th:if="${#authentication.name != 'anonymousUser'}">
     <h2>Добавить новый пост</h2>
-    <form action="/blog/save" method="post">
+    <!-- добавляем атрибут enctype -->
+    <form action="/blog/save" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="title">Заголовок:</label>
             <input type="text" class="form-control" id="title" name="title" required>
@@ -78,9 +81,15 @@
             <label for="content">Содержание:</label>
             <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
         </div>
+        <!-- добавляем элемент ввода для файла -->
+        <div class="form-group">
+            <label for="image">Изображение:</label>
+            <input type="file" class="form-control-file" id="image" name="image">
+        </div>
         <button type="submit" class="btn btn-primary">Добавить пост</button>
     </form>
 </div>
+
 
 <!-- Optional JavaScript for Bootstrap (requires jQuery) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

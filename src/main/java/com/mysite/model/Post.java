@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Post {
@@ -14,6 +15,11 @@ public class Post {
     private String title;
     private String content;
 
+    @Lob
+    private byte[] image;
+
+    private String imageType;
+
     public Post() {}
 
     public Post(String title, String content) {
@@ -21,10 +27,12 @@ public class Post {
         this.content = content;
     }
 
-    public Post(Long id, String title, String content) {
+    public Post(Long id, String title, String content, byte[] image, String imageType) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.image = image;
+        this.imageType = imageType;
     }
 
     public Long getId() {
@@ -50,6 +58,20 @@ public class Post {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
+    }
 }
-
-
