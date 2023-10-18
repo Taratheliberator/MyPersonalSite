@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Главная страница</title>
-    <!-- CSS for Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,16 +29,45 @@
 </nav>
 
 <div class="container mt-5">
-    <h1>Добро пожаловать на мой сайт!</h1>
-    <p>Здесь вы найдете мои статьи и портфолио.</p>
-    <a href="/blog" class="btn btn-primary">Перейти к блогу</a>
 
-    <!-- Кнопка "Выйти" -->
-    <form th:action="@{/logout}" method="post" style="display: inline;">
-        <button type="submit" class="btn btn-danger ml-3">Выйти</button>
-    </form>
+    <!-- Личное приветствие -->
+    <section>
+        <h1>Приветствую на моем сайте!</h1>
+        <p>Этот сайт - демонстрация моих навыков в Java и Spring.</p>
+    </section>
+
+    <!-- О вас -->
+    <section>
+        <h2>Обо мне</h2>
+        <p>Меня зовут Гиндуллин Винер Хатмуллович. Я - начинающий программист с глубоким пониманием различных технологических стеков, включая Java, React Native, и PHP. Мой профессиональный опыт охватывает как разработку мобильных приложений, так и автоматизацию процессов работы с базами данных. Я всегда стремлюсь к инновациям и активно использую передовые инструменты для улучшения рабочего процесса. Моя страсть к программированию сочетается с постоянным желанием учиться, что подтверждается множеством сертификатов и курсов, которые я успешно прошел. В свободное время я люблю путешествовать и читать научную литературу.</p>
+    </section>
+
+    <!-- Технические детали проекта -->
+    <section>
+        <h2>Технические детали</h2>
+        <p>Используемые технологии:</p>
+        <p>Для разработки этого сайта я использовал ряд современных технологий и инструментов, чтобы обеспечить высокую производительность, безопасность и удобство использования:</p>
+        <ul>
+            <li><strong>Java 11</strong>: Основной язык программирования, обеспечивающий высокую производительность и надежность приложения.</li>
+            <li><strong>Spring Boot</strong>: Позволяет быстро и легко создавать масштабируемые веб-приложения.</li>
+            <li><strong>Spring Data JPA</strong>: Упрощает работу с базой данных, автоматизируя CRUD-операции.</li>
+            <li><strong>Spring Security</strong>: Обеспечивает защиту данных пользователей и безопасный доступ к ресурсам сайта.</li>
+            <li><strong>Thymeleaf</strong>: Динамическое создание веб-страниц на стороне сервера без необходимости использования JavaScript.</li>
+            <li><strong>MySQL</strong>: Надежная и масштабируемая система управления базами данных.</li>
+            <li><strong>Docker</strong>: Гарантирует надежное и единообразное развертывание приложения в любой среде.</li>
+            <li><strong>Maven</strong>: Управление проектом и зависимостями, автоматическая сборка и тестирование.</li>
+        </ul>
+    </section>
+
+
+    <!-- Портфолио -->
+    <section>
+        <h2>Мои проекты</h2>
+        <p>GitHub: <a href="https://github.com/Taratheliberator">https://github.com/Taratheliberator</a></p>
+    </section>
+
 </div>
-<!-- Optional JavaScript for Bootstrap (requires jQuery) -->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
