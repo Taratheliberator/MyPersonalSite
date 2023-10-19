@@ -9,3 +9,11 @@
 ## Авторизация
 
 [![Авторизация](https://i.postimg.cc/1X7682t7/Screenshot-login.png)](https://postimg.cc/N2TLVNRR)
+
+## Сборка и запуск приложения
+
+Для сборки приложения используйте:
+
+````bash
+maven clean package ```
+````
