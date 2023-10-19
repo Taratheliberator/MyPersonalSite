@@ -21,7 +21,7 @@ mvn clean package
 Для запуска приложения с помощью Docker Compose выполните:
 
 ```bash
-Copy code
+
 docker-compose build
 docker-compose up
 ```
