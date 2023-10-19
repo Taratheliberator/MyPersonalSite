@@ -5,4 +5,5 @@ FROM openjdk:22
 COPY target/MyPersonalSite-0.0.1-SNAPSHOT.jar app.jar
 
 # Запуск приложения
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-Dfile.encoding=UTF8","-jar","/app.jar"]
+
