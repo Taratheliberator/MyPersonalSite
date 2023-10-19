@@ -14,6 +14,16 @@
 
 Для сборки приложения используйте:
 
-````bash
-maven clean package ```
-````
+```bash
+mvn clean package
+```
+
+Для запуска приложения с помощью Docker Compose выполните:
+
+```bash
+Copy code
+docker-compose build
+docker-compose up
+```
+
+Приложение будет доступно на порту 8080
